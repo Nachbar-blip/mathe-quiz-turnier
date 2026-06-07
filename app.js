@@ -187,6 +187,7 @@
       "</div>" +
       '<div class="nameinputs" id="names"></div>' +
       '<button class="primary big" id="start">Turnier starten ▶</button>' +
+      '<p style="margin:1.1rem 0 0"><a href="anleitung.html" target="_blank" style="color:var(--indigo);font-weight:600;text-decoration:none">📖 Spielanleitung öffnen</a></p>' +
       "</div></div>";
   }
   function bindSetup() {

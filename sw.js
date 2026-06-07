@@ -2,9 +2,9 @@
    Strategie: network-first mit Cache-Fallback.
    So bekommt das Gerät online stets aktuelle Fragen, funktioniert aber offline weiter,
    sobald die Seite einmal geladen wurde. Bei Inhalts-Updates CACHE-Version erhöhen. */
-const CACHE = "quiz-turnier-v2";
+const CACHE = "quiz-turnier-v3";
 const ASSETS = [
-  "./", "index.html", "styles.css", "app.js", "data.js",
+  "./", "index.html", "styles.css", "app.js", "data.js", "anleitung.html",
   "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "qr-schueler.png"
 ];
 
