@@ -156,6 +156,17 @@
         };
       });
   }
+  function openQR() {
+    var url = location.origin + location.pathname + "?ansicht=schueler";
+    modal("QR-Code · Schüler-Ansicht",
+      '<div style="text-align:center">' +
+        '<img src="qr-schueler.png" alt="QR-Code Schüler-Ansicht" style="width:min(72vw,360px);height:auto;border-radius:12px;background:#fff;padding:10px;box-shadow:0 2px 10px rgba(0,0,0,.08)">' +
+        '<p class="mini" style="margin:.7rem 0 0;word-break:break-all">' + escapeHtml(url) + "</p>" +
+        '<p class="mini">Auf dem Beamer zeigen → die SuS scannen mit der Handy-Kamera → die Schüler-Ansicht öffnet sich.</p>' +
+      "</div>" +
+      '<div class="row"><button class="primary" id="m_close">Schließen</button></div>',
+      function (ov, close) { $("#m_close", ov).onclick = close; });
+  }
   function copy(text, btn) {
     var done = function () { var t = btn.textContent; btn.textContent = "✓ kopiert"; setTimeout(function () { btn.textContent = t; }, 1400); };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
@@ -215,6 +226,7 @@
       '<div class="posbadge"><b>' + pos.split(" · ")[0] + '</b><span>' + (q ? "Frage " + (state.pos.f + 1) : "") + "</span></div>" +
       '<div class="actions">' +
         '<button id="h_stud">📱 Schüler-Ansicht</button>' +
+        '<button id="h_qr">📲 QR</button>' +
         '<button id="h_loes">📋 Lösungsliste</button>' +
         '<button id="h_save">💾 Sichern</button>' +
         '<button id="h_load">📂 Laden</button>' +
@@ -290,6 +302,7 @@
   }
   function bindSteuer() {
     $("#h_stud").onclick = function () { window.open("?ansicht=schueler", "_blank"); };
+    $("#h_qr").onclick = openQR;
     $("#h_loes").onclick = function () { window.open("?ansicht=loesungen", "_blank"); };
     $("#h_save").onclick = openSave;
     $("#h_load").onclick = openLoad;
